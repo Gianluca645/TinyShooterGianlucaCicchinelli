@@ -153,6 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b6eb23fbf7b0ff43afd04834ff4a838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RocketMover
-  _speed: 5
+  _speed: 10
   _lifeTime: 3
   isEnemyBullet: 0

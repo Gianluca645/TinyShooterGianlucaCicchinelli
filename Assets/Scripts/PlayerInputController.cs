@@ -1,91 +1,124 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// COMO NO QUIERO QUE SE MUEVA EL FLAPPY, COMENTARÉ EL MOVE Y DEJARÉ EL JUMP!!! ///
-
-
-
 public class PlayerInputController : MonoBehaviour
 {
-    /*[SerializeField] [Range(0f,5f)] float speed; // Pongo SerializeField para que me aparezca ahi a la derecha las cosas que van cambiando. Puedo poner Public y tmb aparecerá
-    [SerializeField] Vector2 move;
-    [SerializeField] float directionX;
-    [SerializeField] float directionZ;*/
+
+    [SerializeField] [Range(0f, 15f)] float speed = 8f;
+    private Vector2 move;
+    private float directionX;
+    private float directionZ;
 
     [SerializeField] bool jump;
-    [SerializeField] float ThrustForce = 25000;
+    [SerializeField] float ThrustForce = 25000f;
     Rigidbody rb;
 
+    // Lo que me hace falta para disparar //
 
+    [SerializeField] GameObject _rocketPrefab;
+    [SerializeField] Transform _fireStartPos;
+    [SerializeField] LayerMask _clickableLayers;
 
+    private bool _isAttack;
+    private Vector2 _mousePos;
+    private RaycastHit _hitMouse;
+    private Vector3 _lookAtPos;
 
-
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody>(); 
-        
-        // Obtengo el Rigidbody que tiene mi player1
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-
         if (jump)
         {
             Jump();
         }
 
-        // Move();
+        Move();
+
+        // Opcional: gira el personaje hacia el ratón para disparar en cualquier dirección sin atravesarse
+        transform.LookAt(new Vector3(_lookAtPos.x, transform.position.y, _lookAtPos.z));
+
+        
+        if (_isAttack)
+        {
+            Fire();
+        }
     }
 
-    /* private void Move()
+    private void Move()
     {
         directionX = move.x;
         directionZ = move.y;
 
-        // W y S dan los valores 1 y -1 por lo que se mueven en ambas direcciones verticales (Y)
-
-        // A y D dan valores 1 y -1 por lo que se mueven en ambas direcciones horizontales (X)
-
-
-        transform.Translate(directionX * speed * Time.deltaTime, 0, directionZ * Time.deltaTime * speed);
-    }*/
+        // Busqué que tengo que añadir Space.World al final para que W/A/S/D siempre mueva recto aunque el personaje gire
+        transform.Translate(directionX * speed * Time.deltaTime, 0, directionZ * Time.deltaTime * speed, Space.World);
+    }
 
     private void Jump()
     {
         Debug.Log("Jumping!");
-        rb.AddRelativeForce(Vector3.up * ThrustForce * Time.fixedDeltaTime); 
-
+        rb.AddRelativeForce(Vector3.up * ThrustForce * Time.fixedDeltaTime);
         jump = false;
-        
-        // Esta es la manera más fácil de simular un salto, dando un empujón hacía arriba
-
-        // Aunque hace basicamente lo mismo que el delta time, nos conviene usar
-        // el fixed DeltaTime SIEMPRE cuando vamos a estar jugando con física como es saltar y la gravedad y eso porque el programa hace unos procedimientos
-        // distintos pero mejores para los casos con física
-
-        
     }
 
-    /*public void OnMove(InputValue value)
+    public void OnMove(InputValue value)
     {
-
-        // La acción definida en InputSystem_Actions para el movimiento se llama Move. El mensaje que envia Unity cada vez que se active una accion, llega a un método llamado OnMove(InputValue value)
-
-
-        move =  value.Get<Vector2>(); 
-        
-        // El valor de las teclas (bindings) es del tipo Vector2 (Vector2D en el InputSystem_Actions)
-    }*/
+        move = value.Get<Vector2>();
+    }
 
     public void OnJump(InputValue value)
     {
-        jump = value.isPressed; 
+        jump = value.isPressed;
+    }
 
-        // Para detectar si se ha pulsado el boton del espacio
+    
+    public void OnAttack(InputValue value)
+    {
+        _isAttack = value.isPressed;
+    }
+
+    public void OnMouseMove(InputValue value)
+    {
+        Vector2 input = value.Get<Vector2>();
+        _mousePos = input;
+        UpdateMousePosInWorld();
+    }
+
+    
+    private void UpdateMousePosInWorld()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(_mousePos);
+        Physics.Raycast(ray, out _hitMouse, 1000, _clickableLayers);
+
+        // Uso _fireStartPos.position.y en vez de this.transform.position.y porque mi personaje tiene el pivote en los pies y asi la bola de nieve no se inclina porque
+        // le fijo a posicion del firestartpos
+        _lookAtPos = new Vector3(_hitMouse.point.x, _fireStartPos.position.y, _hitMouse.point.z);
+    }
+
+    private void Fire()
+    {
+        RocketMover newProjectile = Instantiate(_rocketPrefab, _fireStartPos.position, this.transform.rotation).GetComponent<RocketMover>();
+        newProjectile.transform.LookAt(_lookAtPos);
+
+        // Así disparo una bola por clic en vez de un montón
+        _isAttack = false;
+    }
+
+   
+
+   // No se si me funciona el gizmo este //
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.aquamarine;
+        if (_fireStartPos)
+        {
+            Gizmos.DrawLine(_fireStartPos.position, _lookAtPos);
+        }
+        Gizmos.DrawWireSphere(_lookAtPos, 0.10f);
     }
 }
