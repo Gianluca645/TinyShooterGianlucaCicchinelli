@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-// Muy parecido al GoldPicker
+// Muy parecido al PresentPicker
 
 
 public class GateCollisionController : MonoBehaviour
@@ -12,18 +12,18 @@ public class GateCollisionController : MonoBehaviour
         if(other.gameObject.tag=="Player")
         {
 
-            ScoreBoardManager scoreBoardManager = FindAnyObjectByType<ScoreBoardManager>();
-            if(scoreBoardManager) scoreBoardManager.SaveCheckPoint();
-
-            // Esto guarda los puntos que tenía el jugador en el anterior nivel cuando pasa por la puerta
+            ScoreManager scoreManager = FindAnyObjectByType<ScoreManager>();
+            if(scoreManager && scoreManager.HasAllPresents())
+            {
+                LevelController levelController = FindAnyObjectByType<LevelController>();
+                if (levelController) levelController.LoadNextLevel();
             
-
-
-
-            LevelController levelController = FindAnyObjectByType<LevelController>();
-            if (levelController) levelController.LoadNextLevel();
-            
-            // Cargo mi siguiente nivel (escena)
+                // Cargo mi siguiente nivel (escena)
+            }
+            else
+            {
+                Debug.Log("TE FALTAN REGALOS PARA ACTIVAR EL PORTAL");
+            }
         
         }
 

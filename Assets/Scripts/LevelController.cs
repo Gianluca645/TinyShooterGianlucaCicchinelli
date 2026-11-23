@@ -52,13 +52,6 @@ public class LevelController : MonoBehaviour
     void ReloadLevel()
     {
         int CurrentScene = SceneManager.GetActiveScene().buildIndex;
-        
-        // Si quiero que siempre empiece desde el inicio, reinicio con el indice 0
-        if (CurrentScene == 0){
-            ScoreBoardManager scoreBoardManager = FindAnyObjectByType<ScoreBoardManager>();
-            if(scoreBoardManager) scoreBoardManager.ResetToZero();
-        }
-
         SceneManager.LoadScene(CurrentScene);
 
         // Esto pide al SceneManager el índice de la escene activa (actual) y vuelve a cargar esa misma escena.

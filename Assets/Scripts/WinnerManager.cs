@@ -7,6 +7,8 @@ public class WinnerManager : MonoBehaviour
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
+    /*
     void Start()
     {
         int PipePoints = ScoreBoardManager.score;
@@ -23,6 +25,6 @@ public class WinnerManager : MonoBehaviour
 
 
     }
-
+    */
     
 }

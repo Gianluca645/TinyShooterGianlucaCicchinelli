@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2378434528047355544}
   - component: {fileID: 496824035231507026}
   - component: {fileID: 5896237683623481239}
+  - component: {fileID: 2719656156553827734}
   m_Layer: 0
   m_Name: Present_003
   m_TagString: Untagged
@@ -112,3 +113,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.80518603, y: 1.148105, z: 0.764698}
   m_Center: {x: -0.00925529, y: 0.53029925, z: 0.017595291}
+--- !u!114 &2719656156553827734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2154390384127902599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a83d10a52a70c20449c386c32cb3b0a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PresentPicker

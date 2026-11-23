@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 // Este script es lo que sucede CUANDO el jugador choca con algo
 // (mientras que el PipeCollision es el script que DETECTA la collision, y llama a esta)
@@ -44,4 +44,4 @@ public class PlayerCollisionManager : MonoBehaviour
     }
 
 
-}
+}*/

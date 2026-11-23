@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 // Este es el script que DETECTA cuando el jugador se ha chocado con algo (en este caso el Pipe)
 // (Lo detecta y llama al PlayerCollisionManager para saber QUÉ hacer ya que se ha chocado)
@@ -15,7 +15,7 @@ public class PipeCollision : MonoBehaviour
     // NO NECESITAMOS VOID START NI VOID UPDATE, SOLO EL COLLISION ENTER, TRIGGER ENTER //
     
 
-
+/*
     private void OnCollisionEnter(Collision other){
         // Cuando haya colision, unity activa este método
         // Procurar que el IsTrigger esté desactivado para que haya colisión, si está activado lo atraviesaría
@@ -30,7 +30,7 @@ public class PipeCollision : MonoBehaviour
             
             // El get lo que hace es como que trae ese script aquí
         }
-    }
+    }*/
 
 
     // Update is called once per frame
@@ -38,4 +38,4 @@ public class PipeCollision : MonoBehaviour
     {
         
     }*/
-}
+    

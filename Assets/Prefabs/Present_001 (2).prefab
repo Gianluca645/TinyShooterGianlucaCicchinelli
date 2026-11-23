@@ -71,6 +71,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 85182616d9fd53448a2fbb0fd6e5fb4f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3800253402289143985}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 85182616d9fd53448a2fbb0fd6e5fb4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7161832926940612988}
   m_SourcePrefab: {fileID: 100100000, guid: 85182616d9fd53448a2fbb0fd6e5fb4f, type: 3}
 --- !u!1 &1707043968494936176 stripped
 GameObject:
@@ -98,3 +101,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.401085, y: 1.4294709, z: 1.1264778}
   m_Center: {x: -0.06320436, y: 0.70822036, z: -0.030451983}
+--- !u!114 &-7161832926940612988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707043968494936176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a83d10a52a70c20449c386c32cb3b0a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PresentPicker
