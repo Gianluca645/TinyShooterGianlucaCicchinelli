@@ -10,6 +10,7 @@ public class EnemyNavigator : MonoBehaviour
 
     [SerializeField] private GameObject _rocketPrefab;
     [SerializeField] private Transform _rocketSpawnPoint;
+    [SerializeField] GameObject _enemyExplosion;
     [SerializeField] private float _fireRate = 2f; // Disparar cada 2 segundos
 
     void Awake()
@@ -53,6 +54,7 @@ public class EnemyNavigator : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if(_enemyExplosion) Instantiate(_enemyExplosion,transform.position,Quaternion.identity);
             Destroy(this.gameObject);
         }
     }

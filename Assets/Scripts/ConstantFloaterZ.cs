@@ -1,0 +1,32 @@
+using UnityEngine;
+
+public class ConstantFloaterZ : MonoBehaviour
+{
+   
+   
+   [SerializeField] float amplitude = 2f; // Quiero que se mueva esto
+
+   [SerializeField] float final_frequency = 1f; // la velocidad a la que quiero que oscile
+   
+   Vector3 startPos;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        startPos = transform.localPosition; // El valor inicial de la posición
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        float newz = startPos.z + Mathf.Sin(Time.time * final_frequency) * amplitude;
+        //float newY = startPos.y + Mathf.Sin(Time.time * final_frequency) * amplitude;
+
+        transform.localPosition = new Vector3(startPos.x, startPos.y, newz);
+
+
+        // TOmo la localPosition actual, modifico alguno de sus valores x,y,z (en este caso el eje X) y le vuelvo a asignar localPosition
+
+    }
+}
+

@@ -4,6 +4,7 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] BarController _healthBar;
     [SerializeField] float _maxHealth = 3f; // Con tres balas muere el muñeco
+    [SerializeField] GameObject _enemyExplosion;
     private float _currentHealth;
 
     void Start()
@@ -25,6 +26,7 @@ public class EnemyHealth : MonoBehaviour
 
             if (_currentHealth <= 0)
             {
+                if(_enemyExplosion) Instantiate(_enemyExplosion,transform.position,Quaternion.identity);
                 Destroy(this.gameObject);
             }
         }

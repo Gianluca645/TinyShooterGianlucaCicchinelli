@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNavigator
   _rocketPrefab: {fileID: 3125423349886093418, guid: 4ecc18d5ddfd5674cb15951b48b42b70, type: 3}
   _rocketSpawnPoint: {fileID: 4646394466295298344}
+  _enemyExplosion: {fileID: 225578724984030610, guid: 02032a845e4905b4bba2cc77ba419796, type: 3}
   _fireRate: 4
 --- !u!114 &6769980084335356955
 MonoBehaviour:
@@ -171,6 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   _healthBar: {fileID: 7276974856143826094}
   _maxHealth: 3
+  _enemyExplosion: {fileID: 225578724984030610, guid: 02032a845e4905b4bba2cc77ba419796, type: 3}
 --- !u!1 &553720224064000230
 GameObject:
   m_ObjectHideFlags: 0

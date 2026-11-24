@@ -4,9 +4,9 @@ public class ConstantFloaterHV : MonoBehaviour
 {
    
    
-   [SerializeField] float amplitude = 2f; // Quiero que suba esto
+   [SerializeField] float amplitude = 2f; // Quiero que se mueva esto
 
-   [SerializeField] float final_frequency = 1f; // la velocidad a la que quiero que oscile mi pipe
+   [SerializeField] float final_frequency = 1f; // la velocidad a la que quiero que oscile
    
    Vector3 startPos;
 
@@ -20,12 +20,12 @@ public class ConstantFloaterHV : MonoBehaviour
     void Update()
     {
         float newX = startPos.x + Mathf.Sin(Time.time * final_frequency) * amplitude;
-        float newY = startPos.y + Mathf.Sin(Time.time * final_frequency) * amplitude;
+        //float newY = startPos.y + Mathf.Sin(Time.time * final_frequency) * amplitude;
 
-        transform.localPosition = new Vector3(newX, newY, startPos.z);
+        transform.localPosition = new Vector3(newX, startPos.y, startPos.z);
 
 
-        // TOmo la localPosition actual, modifico alguno de sus valores x,y,z (en este caso el eje Y) y le vuelvo a asignar localPosition
+        // TOmo la localPosition actual, modifico alguno de sus valores x,y,z (en este caso el eje X) y le vuelvo a asignar localPosition
 
     }
 }

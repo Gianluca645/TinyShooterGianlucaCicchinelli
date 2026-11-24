@@ -1833,6 +1833,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: c3d26f81445a4bd4699b8119bef37e50, type: 3}
       insertIndex: -1
       addedObject: {fileID: 728457150}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: c3d26f81445a4bd4699b8119bef37e50, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 728457155}
   m_SourcePrefab: {fileID: 100100000, guid: c3d26f81445a4bd4699b8119bef37e50, type: 3}
 --- !u!4 &160244735 stripped
 Transform:
@@ -1983,6 +1986,7 @@ Transform:
   - {fileID: 1502670773}
   - {fileID: 331225080}
   - {fileID: 672711225}
+  - {fileID: 897365597}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &207311024
@@ -4493,6 +4497,20 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.001, z: 0.004}
   m_TimeToStationary: 0.5
+--- !u!114 &728457155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728457146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704ff7912bc1a204b91e57f4e26541f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConstantFloaterHV
+  amplitude: 2
+  final_frequency: 1
 --- !u!1001 &728552269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5417,6 +5435,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893508675}
   m_CullTransparentMesh: 1
+--- !u!1 &897365596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 897365597}
+  - component: {fileID: 897365598}
+  m_Layer: 0
+  m_Name: NavMesh UpLink (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &897365597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897365596}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.34, y: 4.89, z: 21.13}
+  m_LocalScale: {x: 1.3182, y: 1.3182, z: 1.3182}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 185065541}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &897365598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897365596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eeb5dc026fdf4b488bc7ae0138ab719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshLink
+  m_SerializedVersion: 1
+  m_AgentTypeID: 0
+  m_StartPoint: {x: 0.72085357, y: -2.004221, z: 1.0730782}
+  m_EndPoint: {x: 0.62937593, y: -2.706011, z: -2.322363}
+  m_StartTransform: {fileID: 0}
+  m_EndTransform: {fileID: 0}
+  m_Activated: 1
+  m_Width: 0.049716566
+  m_CostModifier: 1
+  m_IsOverridingCost: 0
+  m_Bidirectional: 1
+  m_AutoUpdatePosition: 0
+  m_Area: 0
 --- !u!1001 &899128172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5495,6 +5570,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: c3d26f81445a4bd4699b8119bef37e50, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1763584587}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: c3d26f81445a4bd4699b8119bef37e50, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1763584592}
   m_SourcePrefab: {fileID: 100100000, guid: c3d26f81445a4bd4699b8119bef37e50, type: 3}
 --- !u!4 &899128173 stripped
 Transform:
@@ -8354,7 +8432,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -10338,6 +10416,20 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.001, z: 0.004}
   m_TimeToStationary: 0.5
+--- !u!114 &1763584592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763584583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5408f64305ed19341b0b4664a71c9d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConstantFloaterZ
+  amplitude: 1
+  final_frequency: 1
 --- !u!1 &1765787308
 GameObject:
   m_ObjectHideFlags: 0
@@ -10859,6 +10951,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: c3d26f81445a4bd4699b8119bef37e50, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1844241016}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: c3d26f81445a4bd4699b8119bef37e50, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1844241021}
   m_SourcePrefab: {fileID: 100100000, guid: c3d26f81445a4bd4699b8119bef37e50, type: 3}
 --- !u!4 &1844241012 stripped
 Transform:
@@ -10902,6 +10997,20 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.001, z: 0.004}
   m_TimeToStationary: 0.5
+--- !u!114 &1844241021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139659184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704ff7912bc1a204b91e57f4e26541f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConstantFloaterHV
+  amplitude: 1
+  final_frequency: 1
 --- !u!1001 &1851512645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11475,7 +11584,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Steal all the presents to unlock the door!  '
+  m_text: "Steal all the presents to unlock the door! \nDodge the Snowmen and their snwoballs!! "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12126,6 +12235,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: c3d26f81445a4bd4699b8119bef37e50, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1960476690}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: c3d26f81445a4bd4699b8119bef37e50, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1960476695}
   m_SourcePrefab: {fileID: 100100000, guid: c3d26f81445a4bd4699b8119bef37e50, type: 3}
 --- !u!4 &1960476686 stripped
 Transform:
@@ -12169,6 +12281,20 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.001, z: 0.004}
   m_TimeToStationary: 0.5
+--- !u!114 &1960476695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512400671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5408f64305ed19341b0b4664a71c9d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConstantFloaterZ
+  amplitude: 2
+  final_frequency: 1
 --- !u!4 &1967852178 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 972948933525706143, guid: b821d8e3d0de1d0479b0547124334511, type: 3}
@@ -12252,6 +12378,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: c3d26f81445a4bd4699b8119bef37e50, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1978345855}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: c3d26f81445a4bd4699b8119bef37e50, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1978345860}
   m_SourcePrefab: {fileID: 100100000, guid: c3d26f81445a4bd4699b8119bef37e50, type: 3}
 --- !u!4 &1978345851 stripped
 Transform:
@@ -12295,6 +12424,20 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.001, z: 0.004}
   m_TimeToStationary: 0.5
+--- !u!114 &1978345860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860335919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704ff7912bc1a204b91e57f4e26541f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConstantFloaterHV
+  amplitude: 2
+  final_frequency: 1
 --- !u!1001 &1994599359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13844,6 +13987,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2483669890275966877, guid: a9ef2d197908ce3438bad07a3aa404b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2722697065656903359}
+    - targetCorrespondingSourceObject: {fileID: 2483669890275966877, guid: a9ef2d197908ce3438bad07a3aa404b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2722697065656903362}
   m_SourcePrefab: {fileID: 100100000, guid: a9ef2d197908ce3438bad07a3aa404b2, type: 3}
 --- !u!4 &2722697065656903357 stripped
 Transform:
@@ -13874,8 +14020,40 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.74398106, y: 0.085412376, z: 0.21256636}
-  m_Center: {x: 0, y: 0.04270615, z: 0.10628293}
+  m_Size: {x: 0.7494016, y: 0.08527233, z: 0.22347184}
+  m_Center: {x: -0.0027102462, y: 0.042636126, z: 0.105370335}
+--- !u!114 &2722697065656903362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2722697065656903358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 1
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 66b08e9fe46143a46a4a17a653999c09, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1001 &3149817093691368045
 PrefabInstance:
   m_ObjectHideFlags: 0
