@@ -33,7 +33,7 @@ public class EnemyNavigator : MonoBehaviour
         if (_player)
         {
             _navMeshAgent.SetDestination(_player.transform.position);
-            // Uso la Y del propio enemigo para que el muñeco de nieve no se incline hacia arriba/abajo al mirarte
+            // Uso la Y del propio enemigo para que el muñeco de nieve no se incline hacia arriba/abajo
             this.transform.LookAt(new Vector3(_player.transform.position.x, this.transform.position.y, _player.transform.position.z));
         }
     }

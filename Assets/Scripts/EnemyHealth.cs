@@ -26,8 +26,20 @@ public class EnemyHealth : MonoBehaviour
 
             if (_currentHealth <= 0)
             {
-                if(_enemyExplosion) Instantiate(_enemyExplosion,transform.position,Quaternion.identity);
+                if(_enemyExplosion)
+                {
+                    Instantiate(_enemyExplosion,transform.position,Quaternion.identity);
+                    
+                } 
+                BossController bosscontroller = GetComponent<BossController>(); // Solo afecta al boss porque los muñecos de nieve no tienen bosscontroller
+                if (bosscontroller) bosscontroller.OnBossDefeated();
                 Destroy(this.gameObject);
+
+                
+
+                
+                
+        
             }
         }
     }

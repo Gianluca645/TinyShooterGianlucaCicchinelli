@@ -38,7 +38,7 @@ public class PlayerInputController : MonoBehaviour
 
         Move();
 
-        // Opcional: gira el personaje hacia el ratón para disparar en cualquier dirección sin atravesarse
+        // Esto gira el personaje hacia el ratón para disparar en cualquier dirección sin atravesarse
         transform.LookAt(new Vector3(_lookAtPos.x, transform.position.y, _lookAtPos.z));
 
         
@@ -109,7 +109,7 @@ public class PlayerInputController : MonoBehaviour
 
    
 
-   // No se si me funciona el gizmo este //
+  
 
 
     private void OnDrawGizmos()

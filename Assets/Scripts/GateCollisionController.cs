@@ -22,7 +22,7 @@ public class GateCollisionController : MonoBehaviour
             }
             else
             {
-                Debug.Log("TE FALTAN REGALOS PARA ACTIVAR EL PORTAL");
+                Debug.Log("YOURE MISSING GIFTS");
             }
         
         }

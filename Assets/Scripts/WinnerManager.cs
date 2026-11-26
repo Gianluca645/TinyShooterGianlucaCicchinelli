@@ -5,26 +5,28 @@ public class WinnerManager : MonoBehaviour
 {
     [SerializeField] TMP_Text finalScoreMessage;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
-    /*
     void Start()
     {
-        int PipePoints = ScoreBoardManager.score;
-        int BonusPoints = ScoreBoardManager.bonus;
+        int level1and2 = 21;
 
-        // Cojo los puntos finales y calculo la puntuación final
+        // Leo directamente de la clase
+        int presentsLevel2 = BonusScoreManager.bonusPresentsCollected;
 
-        int total = PipePoints + (10 * BonusPoints);
+        
+        int extraPresents = presentsLevel2 - 5;
+        if (extraPresents < 0)
+        {
+            extraPresents = 0;
+        }
 
-        // Lo escribo en la pantalla del juego
+        // Calculo el bonus y el total
+        int bonusScore = 25 * extraPresents;
+        int total = (level1and2 * 10) + bonusScore;
 
-
-        finalScoreMessage.text = PipePoints + " + Bonus x10: " + (10*BonusPoints) + " = " + total;
-
-
-    }
-    */
     
+        if (finalScoreMessage)
+        {
+            finalScoreMessage.text = level1and2 + " * 10 + Bonus x25: " + bonusScore + " = " + total;
+        }
+    }
 }

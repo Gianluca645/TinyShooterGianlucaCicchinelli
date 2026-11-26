@@ -25,6 +25,30 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+
+    public void TakeDamage()
+    {
+        if (_lives > 0)
+        {
+            _lives--;
+            UpdateLivesBar();
+
+            if (_lives <= 0)
+            {
+                FindAnyObjectByType<LevelController>().TriggerReloadLevel();
+            }
+        }
+    }
+
+    public void AddLife()
+    {
+        if (_lives < _livesBar.Length)
+        {
+            _lives++;
+            UpdateLivesBar();
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("EnemyBullets") || other.CompareTag("Enemy"))
@@ -40,6 +64,14 @@ public class PlayerHealth : MonoBehaviour
             }
 
 
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.CompareTag("Sledge"))
+        {
+            TakeDamage();
         }
     }
 
